@@ -1,0 +1,48 @@
+-- Create database
+CREATE DATABASE IF NOT EXISTS Hospital_Appointment_System;
+USE Hospital_Appointment_System;
+
+-- Patients table
+CREATE TABLE Patients (
+    PatientId INT AUTO_INCREMENT PRIMARY KEY,
+    PatientName VARCHAR(255),
+    Age INT,
+    DOB DATE,
+    Weight FLOAT,
+    Height FLOAT
+);
+
+-- Doctor table
+CREATE TABLE Doctor (
+    BMDCRegNumber VARCHAR(40) PRIMARY KEY,
+    DoctorName VARCHAR(255),
+    Specialist VARCHAR(255),
+    Qualification VARCHAR(255),
+    NumberOfPatients INT,
+    Ratings FLOAT,
+    Experience INT
+);
+
+-- Appointment table
+CREATE TABLE Appointment (
+    SerialNumber INT AUTO_INCREMENT PRIMARY KEY,
+    Date DATE,
+    Time TIME,
+    PatientName VARCHAR(255),
+    PatientId INT,
+    DoctorId VARCHAR(40),
+    FOREIGN KEY (PatientId) REFERENCES Patients(PatientId),
+    FOREIGN KEY (DoctorId) REFERENCES Doctor(BMDCRegNumber)
+);
+
+-- Status table
+CREATE TABLE Status (
+    Schedule VARCHAR(255),
+    SerialNumber INT,
+    Date DATE,
+    Time TIME,
+    DoctorId VARCHAR(40),
+    PRIMARY KEY (SerialNumber),
+    FOREIGN KEY (SerialNumber) REFERENCES Appointment(SerialNumber),
+    FOREIGN KEY (DoctorId) REFERENCES Doctor(BMDCRegNumber)
+);
