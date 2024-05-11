@@ -36,13 +36,14 @@ CREATE TABLE Appointment (
 );
 
 -- Status table
-CREATE TABLE Status (
-    Schedule VARCHAR(255),
+CREATE TABLE Status
+(
+    Schedule     VARCHAR(255),
     SerialNumber INT,
-    Date DATE,
-    Time TIME,
-    DoctorId VARCHAR(40),
+    Date         DATE,
+    Time         TIME,
+    DoctorId     VARCHAR(40),
     PRIMARY KEY (SerialNumber),
-    FOREIGN KEY (SerialNumber) REFERENCES Appointment(SerialNumber),
-    FOREIGN KEY (DoctorId) REFERENCES Doctor(BMDCRegNumber)
-);
+    FOREIGN KEY (SerialNumber) REFERENCES Appointment (SerialNumber),
+    FOREIGN KEY (DoctorId) REFERENCES Doctor (BMDCRegNumber)
+)
