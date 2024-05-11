@@ -1,0 +1,35 @@
+-- Insert data into Patients table
+INSERT INTO Patients (PatientName, Age, DOB, Weight, Height)
+VALUES
+    ('John Doe', 30, '1994-05-15', 70.5, 175),
+    ('Jane Smith', 25, '1999-10-20', 65.2, 160),
+    ('Michael Johnson', 45, '1979-03-08', 80.3, 180),
+    ('Emily Brown', 35, '1989-07-12', 55.5, 165),
+    ('David Lee', 40, '1984-11-25', 90.2, 185);
+
+-- Insert data into Doctor table
+INSERT INTO Doctor (BMDCRegNumber, DoctorName, Specialist, Qualification, NumberOfPatients, Ratings, Experience)
+VALUES
+    ('DR1234', 'Dr. Smith', 'Cardiologist', 'MBBS, MD', 100, 4.5, 10),
+    ('DR5678', 'Dr. Johnson', 'Neurologist', 'MBBS, MS', 80, 4.2, 8),
+    ('DR91011', 'Dr. Williams', 'Pediatrician', 'MBBS, DCH', 120, 4.8, 12),
+    ('DR121314', 'Dr. Brown', 'Dermatologist', 'MBBS, DVD', 90, 4.6, 9),
+    ('DR151617', 'Dr. Lee', 'Orthopedic Surgeon', 'MBBS, MS', 110, 4.3, 11);
+
+-- Insert data into Appointment table
+INSERT INTO Appointment (Date, Time, PatientName, PatientId, DoctorId)
+VALUES
+    ('2024-05-12', '08:00:00', 'John Doe', 1, 'DR1234'),
+    ('2024-05-15', '09:30:00', 'Jane Smith', 2, 'DR5678'),
+    ('2024-05-18', '11:00:00', 'Michael Johnson', 3, 'DR91011'),
+    ('2024-05-20', '13:30:00', 'Emily Brown', 4, 'DR121314'),
+    ('2024-05-22', '15:00:00', 'David Lee', 5, 'DR151617');
+
+-- Insert data into Status table
+INSERT INTO Status (Schedule, SerialNumber, Date, Time, DoctorId)
+VALUES
+    ('Confirmed', 1, '2024-05-12', '08:00:00', 'DR1234'),
+    ('Pending', 2, '2024-05-15', '09:30:00', 'DR5678'),
+    ('Confirmed', 3, '2024-05-18', '11:00:00', 'DR91011'),
+    ('Pending', 4, '2024-05-20', '13:30:00', 'DR121314'),
+    ('Confirmed', 5, '2024-05-22', '15:00:00', 'DR151617');
